@@ -42,6 +42,12 @@ const PORT = process.env.PORT || 3001;
 
 const app = express();
 
+cronJob('* 10 * * * *', function(){
+  return request({uri:'https://vachana-backend.onrender.com/'}, function (error, response, body) {
+    return util.log('Request succeeded');
+  });
+});
+
 app.get("/api", (req, res)=> {
   console.log('got till here');
     send();
