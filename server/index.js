@@ -43,13 +43,13 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 
 app.get("/api", (req, res)=> {
+  console.log('got till here');
     send();
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     res.setHeader('Access-Control-Allow-Credentials', true);
     res.json(result);
-    console.log('recieved')
 });
 
 app.listen(PORT, () => {
