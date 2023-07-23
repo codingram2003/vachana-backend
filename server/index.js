@@ -1,8 +1,15 @@
 const express = require("express");
+var cron = require('node-cron');
 var mysql = require('mysql');
 var result = []
+var util = require('util')
+  , http = require('http')
+  , cronJob = require('node-cron').CronJob
+  , request = require('request');
 
-
+  cron.schedule('0 */10 * * * *', function() {
+    return 1+1
+  });
 
 function send() {
   var connection = mysql.createConnection({
@@ -42,11 +49,6 @@ const PORT = process.env.PORT || 3001;
 
 const app = express();
 
-cronJob('* 10 * * * *', function(){
-  return request({uri:'https://vachana-backend.onrender.com/'}, function (error, response, body) {
-    return util.log('Request succeeded');
-  });
-});
 
 app.get("/api", (req, res)=> {
   console.log('got till here');
