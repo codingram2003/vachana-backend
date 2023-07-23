@@ -2,10 +2,6 @@ const express = require("express");
 var cron = require('node-cron');
 var mysql = require('mysql');
 var result = []
-var util = require('util')
-  , http = require('http')
-  , cronJob = require('node-cron').CronJob
-  , request = require('request');
 
   cron.schedule('0 */10 * * * *', function() {
     return 1+1
@@ -41,9 +37,6 @@ connection.query('SELECT * FROM demo_database.transcripts', (error, results, fie
 
   connection.end();
 }
-
-
-
 
 const PORT = process.env.PORT || 3001;
 
