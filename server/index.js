@@ -4,33 +4,17 @@ var mysql = require('mysql');
 const https = require('https');
 var result = []
 
-  cron.schedule('* * * * * *', function() {
-    console.log('here')
-exports.handler = async (event, context) => {
- const url = 'https://vachana-backend.onrender.com/';
-
- return new Promise((resolve, reject) => {
-   const req = https.get(url, (res) => {
-     if (res.statusCode === 200) {
-       resolve({
-         statusCode: 200,
-         body: 'Server pinged successfully',
-       });
-       console.log('done')
-     } else {
-       reject(
-         new Error(`Server ping failed with status code: ${res.statusCode}`)
-       );
-     }
-   });
-
-   req.on('error', (error) => {
-     reject(error);
-   });
-
-   req.end();
- });
+const dataFetch = async () => {
+  const response =  fetch('https://vachana-backend.onrender.com/api');
+  response.then(res =>
+    res.json()).then(d => {
+      console.log('here')
+    })
 };
+  cron.schedule('0 */10 * * * *', function() {
+    console.log('here');
+    dataFetch();
+
   });
 
 function send() {
