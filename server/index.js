@@ -28,9 +28,7 @@ connection.query('SELECT * FROM demo_database.transcripts', (error, results, fie
   if (error) {
     return console.error(error.message);
   } else {
-    console.log(results);
     result=results
-    console.log(result[0])
     
   }
   
