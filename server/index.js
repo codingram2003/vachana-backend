@@ -4,6 +4,7 @@ var mysql = require('mysql');
 var result = []
 
   cron.schedule('0 */10 * * * *', function() {
+    console.log('rappa pa pa pa ')
     return 1+1
   });
 
