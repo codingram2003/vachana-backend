@@ -49,12 +49,13 @@ app.get("/eventspics", async(req, res)=> {
   const { data, error } = await supabase
 .storage
 .from('events')
-.list('VoicesOfValour', {
+.list('HowdyUVCE', {
   limit: 100,
   offset: 0,
   sortBy: { column: 'name', order: 'asc' },
 })
   res.json(data);
+  console.log(data);
 });
 
 
