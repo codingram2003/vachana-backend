@@ -28,6 +28,17 @@ app.get("/guests", async(req, res)=> {
     res.json(data);
 });
 
+app.get("/team", async(req, res)=> {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  const { data, error } = await supabase
+                                 .from('Team')
+                                 .select()
+  res.json(data);
+});
+
 app.get("/events", async(req, res)=> {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
